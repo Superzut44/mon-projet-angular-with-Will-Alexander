@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AppareilService } from './services/appareil.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { AppareilService } from './services/appareil.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   isAuth = false;
 
   lastUpdate: Promise<Date> = new Promise(
@@ -21,20 +21,7 @@ export class AppComponent {
     }
   );
 
-  appareils = [
-    {
-      name: 'Machine à laver',
-      status: 'allumé'
-    },
-    {
-      name: 'Télévision',
-      status: 'allumé'
-    },
-    {
-      name: 'Ordinateur',
-      status: 'éteint'
-    }
-  ];
+  appareils!: any[];
 
   constructor(private appareilService: AppareilService) {
     setTimeout(
@@ -43,8 +30,17 @@ export class AppComponent {
       }, 4000
     );
   }
+
+  ngOnInit(): void {
+      this.appareils = this.appareilService.appareils;
+  }
+
   onAllumer() {
-    console.log('On allume tout !');
+    this.appareilService.switchOnAll();
+  }
+
+  onEteindre() {
+    this.appareilService.switchOffAll();
   }
 }
 

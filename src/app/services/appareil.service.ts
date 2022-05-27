@@ -1,9 +1,34 @@
-import { Injectable } from '@angular/core';
+// import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+// @Injectable({
+//   providedIn: 'root'
+// })
 export class AppareilService {
 
-  constructor() { }
+  appareils = [
+    {
+      name: 'Machine à laver',
+      status: 'allumé'
+    },
+    {
+      name: 'Télévision',
+      status: 'allumé'
+    },
+    {
+      name: 'Ordinateur',
+      status: 'éteint'
+    }
+  ];
+
+  switchOnAll() {
+    for(let appareil of this.appareils) {
+      appareil.status = 'allumé'
+    }
+  }
+
+  switchOffAll() {
+    for(let appareil of this.appareils) {
+      appareil.status = 'éteint'
+    }
+  }
 }
