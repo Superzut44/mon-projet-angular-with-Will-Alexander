@@ -8,10 +8,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
   isAuth = false;
 
+  lastUpdate = new Date();
+
   appareils = [
     {
       name: 'Machine à laver',
-      status: 'éteint'
+      status: 'allumé'
     },
     {
       name: 'Télévision',
