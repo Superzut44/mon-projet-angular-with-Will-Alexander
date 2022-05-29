@@ -5,20 +5,20 @@
       <input type="text" class="form-control" id="firstName" formControlName="firstName">
     </div>
     <div class="form-group">
-      <label for="lastName">Prénom</label>
+      <label for="lastName">Nom</label>
       <input type="text" class="form-control" id="lastName" formControlName="lastName">
     </div>
     <div class="form-group">
-      <label for="email">Prénom</label>
+      <label for="email">Adresse mail</label>
       <input type="text" class="form-control" id="email" formControlName="email">
     </div>
     <div class="form-group">
-      <label for="drinkPreference">Prénom</label>
+      <label for="drinkPreference">Quelle boisson préférez-vous ?</label>
       <select id="drinkPreference" class="form-control" formControlName="drinkPreference">
-        <option value="Coca"></option>
-        <option value="Pepsi"></option>
+        <option value="Coca">Coca</option>
+        <option value="Pepsi">Pepsi</option>
       </select>
     </div>
-    <button class="btn btn-primary" type="submit">Soumettre</button>
+    <button class="btn btn-primary" type="submit" [disabled]="userForm.invalid">Soumettre</button>
   </form>
 </div>
