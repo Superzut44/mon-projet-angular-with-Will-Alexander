@@ -20,12 +20,15 @@ import { NumberToStringPipe } from './pipes/number-to-string.pipe';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { EditAppareilComponent } from './edit-appareil/edit-appareil.component';
+import { UserService } from './services/user.service';
+import { UserListComponent } from './user-list/user-list.component';
 
 const appRoutes: Routes = [
   { path: 'appareils', canActivate: [AuthGuard], component: AppareilViewComponent },
   { path: 'appareils/:id', canActivate: [AuthGuard], component: SingleAppareilComponent },
   { path: 'edit', canActivate: [AuthGuard], component: EditAppareilComponent },
   { path: 'auth', component: AuthComponent },
+  { path: 'users', canActivate: [AuthGuard], component: UserListComponent},
   { path: '', component: AuthComponent },
   { path: 'not-found', component: FourOhFourComponent },
   { path: '**', redirectTo: '/not-found' } // important '**' at the end of paths
@@ -39,7 +42,8 @@ const appRoutes: Routes = [
     SingleAppareilComponent,
     NumberToStringPipe,
     FourOhFourComponent,
-    EditAppareilComponent
+    EditAppareilComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,8 @@ const appRoutes: Routes = [
   providers: [
     AppareilService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
