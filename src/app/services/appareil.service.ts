@@ -12,6 +12,11 @@ export class AppareilService {
       id: 1,
       name: 'Machine à laver',
       status: 'allumé'
+    },
+    {
+      id: 2,
+      name: 'Télévision',
+      status: 'éteint'
     }
   ];
 
@@ -88,6 +93,7 @@ export class AppareilService {
     .subscribe(
       (response) => {
         this.appareils = response;
+        console.log('Chargement terminé !');
         this.emitAppareilSubject();
       },
       (error) => {

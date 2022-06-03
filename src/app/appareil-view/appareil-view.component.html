@@ -9,16 +9,20 @@
       [appareilStatus]="appareil.status"
       [id]="appareil.id"></app-appareil>
   </ul>
-  <button
-    class="btn btn-success"
-    (click)="onAllumer()">Tout allumer</button>
-  <button
-    class="btn btn-danger"
-    (click)="onEteindre()">Tout éteindre</button>
-  <button
-    class="btn btn-primary"
-    (click)="onSave()">Enregistrer</button>
-  <button
-    class="btn btn-primary"
-    (click)="onFetch()">Charger</button>
+  <div>
+    <button
+      class="btn btn-success"
+      (click)="onAllumer()">Tout allumer</button>
+    <button
+      class="btn btn-danger"
+      (click)="onEteindre()">Tout éteindre</button>
+  </div>
+  <div class="btn-save-and-load">
+    <button
+      class="btn btn-primary"
+      (click)="onSave()">Enregistrer</button>
+    <button
+      class="btn btn-primary"
+      (click)="onFetch()">Charger</button>
+  </div>
 </div>
