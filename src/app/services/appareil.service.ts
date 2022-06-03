@@ -91,4 +91,18 @@ export class AppareilService {
       }
     )
   }
+
+  getAppareilsFromServer() {
+    this.httpClient
+    .get<any[]>('https://http-client-demo-a5094-default-rtdb.europe-west1.firebasedatabase.app/appareils.json')
+    .subscribe(
+      (response) => {
+        this.appareils = response;
+        this.emitAppareilSubject();
+      },
+      (error) => {
+        console.log('Erreur de chargement ! ' + error);
+      }
+    );
+  }
 }
