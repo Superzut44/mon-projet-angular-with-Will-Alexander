@@ -12,16 +12,6 @@ export class AppareilService {
       id: 1,
       name: 'Machine à laver',
       status: 'allumé'
-    },
-    {
-      id: 2,
-      name: 'Télévision',
-      status: 'allumé'
-    },
-    {
-      id: 3,
-      name: 'Ordinateur',
-      status: 'éteint'
     }
   ];
 
